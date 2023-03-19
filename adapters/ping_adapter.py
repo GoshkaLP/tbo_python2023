@@ -1,9 +1,7 @@
 import pythonping
-from network_adapter import NetworkAdapter
-from socket_adapter import SocketAdapter
 
 
-class PingAdapter(NetworkAdapter):
+class PingAdapter:
     def ping(self, ip: str, count: int = 4) -> int:
         try:
             response = pythonping.ping(ip, count)
@@ -19,9 +17,3 @@ class PingAdapter(NetworkAdapter):
         except Exception as e:
             print(f"Ошибка получения RTT для {address}: {e}")
             return None
-
-    def resolve_domain(self, domain: str) -> list:
-        return SocketAdapter().resolve_domain(domain)
-
-    def check_ports(self, address: str, ports: list) -> list:
-        return SocketAdapter().check_ports(address, ports)

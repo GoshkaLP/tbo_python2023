@@ -1,7 +1,6 @@
 from datetime import datetime
 from config import read_config
-from ping_adapter import PingAdapter
-from network_adapter import NetworkAdapter
+from adapters import adapter, NetworkAdapter
 import time
 
 
@@ -40,7 +39,6 @@ def monitor_server(network_adapter: NetworkAdapter, host: str, ports: list) -> N
 
 def monitor(config_file: str) -> None:
     config = read_config(config_file)
-    network_adapter = PingAdapter()
 
     for host, ports in config:
-        monitor_server(network_adapter, host, ports)
+        monitor_server(adapter, host, ports)
