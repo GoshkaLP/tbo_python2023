@@ -1,0 +1,9 @@
+Host;Ports
+localhost;8080
+yandex.ru;443
+last.fm;80,443
+172.16.3.1;53
+192.168.1.210;53
+gmrybkin.com;80,443
+example.com;
+54.45.45.32;
