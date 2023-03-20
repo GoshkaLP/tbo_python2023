@@ -22,7 +22,7 @@ project/
 2. Склонируйте репозиторий:
 ```
 git clone https://github.com/GoshkaLP/tbo_python2023.git
-cd network-monitor
+cd tbo_python2023
 ```
 3. Отредактируйте файл config.csv, добавив хосты и порты, которые вы хотите отслеживать.
 ### Запуск  
