@@ -2,6 +2,7 @@ import csv
 
 
 def read_config(file_name: str) -> list:
+    # Функция для чтения файла конфигурации
     config = []
     with open(file_name, 'r') as f:
         reader = csv.reader(f, delimiter=';')

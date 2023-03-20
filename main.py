@@ -6,6 +6,7 @@ from monitor import monitor
 
 
 def is_valid_host(host: str) -> bool:
+    # Проверка, является ли переданный хост допустимым IP-адресом или доменным именем
     ip_pattern = r'^(\d{1,3}\.){3}\d{1,3}$'
     hostname_pattern = r'^[a-zA-Z0-9]+([\-.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,20}$'
     special_domains = ['localhost', 'broadcasthost']
@@ -25,6 +26,7 @@ def is_valid_host(host: str) -> bool:
 
 
 def validate_input_data(input_data: list) -> bool:
+    # Валидация данных входного файла
     validation_result = True
     for row_number, entry in enumerate(input_data, 2):
         host, port_list = entry

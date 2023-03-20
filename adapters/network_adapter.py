@@ -1,20 +1,20 @@
-from .ping_adapter import PingAdapter
-from .socket_adapter import SocketAdapter
+from abc import ABC, abstractmethod
 
 
-class NetworkAdapter:
-    def __init__(self, ping_adapter: PingAdapter, socket_adapter: SocketAdapter):
-        self.ping_adapter = ping_adapter
-        self.socket_adapter = socket_adapter
+class NetworkAdapter(ABC):
+    # Общий интерфейс для адаптеров
+    @abstractmethod
+    def ping(self, address: str) -> list:
+        pass
 
-    def ping(self, host: str, count: int = 4) -> int:
-        return self.ping_adapter.ping(host, count)
+    @abstractmethod
+    def get_rtt(self, address: str) -> int | None:
+        pass
 
-    def get_rtt(self, host: str) -> int | None:
-        return self.ping_adapter.get_rtt(host)
-
-    def check_ports(self, host: str, ports: list) -> list:
-        return self.socket_adapter.check_ports(host, ports)
-
+    @abstractmethod
     def resolve_domain(self, domain: str) -> list:
-        return self.socket_adapter.resolve_domain(domain)
+        pass
+
+    @abstractmethod
+    def check_ports(self, address: str, ports: list) -> list:
+        pass
