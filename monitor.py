@@ -49,6 +49,7 @@ def monitor_server(network_adapter: NetworkAdapter, host: str, ports: list) -> N
 def monitor(config_file: str) -> None:
     # Функция мониторинга всех серверов из файла конфигурации
     config = read_config(config_file)
+    # Здесь можем менять адаптер на любой другой, реализующий абстрактный класс NetworkAdapter
     adapter = FirstAdapter()
 
     for host, ports in config:
