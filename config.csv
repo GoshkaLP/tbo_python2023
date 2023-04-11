@@ -1,8 +1,7 @@
 Host;Ports
-localhost;8080
 yandex.ru;443
-last.fm;80,443
-212.24.101.30;21
-172.16.3.1;53
-gmrybkin.com;80,443
-example.com;
+google.com;443
+expired.badssl.com;443
+github.com;80,443
+stackoverflow.com;443
+212.24.101.30;21,80

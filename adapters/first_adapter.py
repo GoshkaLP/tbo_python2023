@@ -1,5 +1,7 @@
 import pythonping
 import socket
+import ssl
+import certifi
 from .network_adapter import NetworkAdapter
 
 
@@ -38,3 +40,14 @@ class FirstAdapter(NetworkAdapter):
         except Exception as e:
             print(f"Ошибка разрешения доменного имени {domain}: {e}")
             return []
+
+    def check_certificate(self, address: str) -> str:
+        try:
+            context = ssl.create_default_context(cafile=certifi.where())
+            with context.wrap_socket(socket.socket(), server_hostname=address) as s:
+                s.connect((address, 443))
+                s.getpeercert()
+                return "valid cert"
+        except ssl.SSLError as e:
+            print(f"Ошибка проверки сертификата для {address}: {e}")
+            return "INVALID cert"

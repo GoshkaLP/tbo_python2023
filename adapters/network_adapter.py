@@ -18,3 +18,7 @@ class NetworkAdapter(ABC):
     @abstractmethod
     def check_ports(self, address: str, ports: list) -> list:
         pass
+
+    @abstractmethod
+    def check_certificate(self, address: str) -> str:
+        pass
